@@ -18,16 +18,20 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='studentextra',
             name='cl',
-            field=models.CharField(choices=[('one', 'one'), ('two', 'two'), ('three', 'three'), ('four', 'four'), ('five', 'five'), ('six', 'six'), ('seven', 'seven'), ('eight', 'eight'), ('nine', 'nine'), ('ten', 'ten')], default='one', max_length=10),
+            field=models.CharField(choices=[('I', 'I'), ('II', 'II'), ('III', 'III'), ('IV', 'IV'), ('V', 'V'), (
+                'VI', 'VI'), ('VII', 'VII'), ('VIII', 'VIII'), ('IX', 'IX'), ('X', 'X')], default='one', max_length=10),
         ),
         migrations.CreateModel(
             name='Attendance',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateField()),
                 ('cl', models.CharField(max_length=10)),
-                ('present_status', models.CharField(choices=[('Present', 'Present'), ('Absent', 'Absent')], max_length=10)),
-                ('student_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='school.StudentExtra')),
+                ('present_status', models.CharField(choices=[
+                 ('Present', 'Present'), ('Absent', 'Absent')], max_length=10)),
+                ('student_id', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='school.StudentExtra')),
             ],
         ),
     ]
